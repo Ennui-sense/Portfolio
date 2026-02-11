@@ -1,0 +1,11 @@
+@use "../helpers/" as *;
+
+.footer {
+  margin-top: auto;
+	
+  &__text {
+    font-weight: 500;
+    font-size: rem(14);
+    letter-spacing: -0.02em;
+  }
+}

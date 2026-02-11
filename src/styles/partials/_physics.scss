@@ -1,0 +1,35 @@
+@use "./../helpers/" as *;
+
+.physics {
+  padding-top: rem(32);
+  border-radius: var(--border-radius);
+  background: var(--color-card-background);
+  display: flex;
+  flex-direction: column;
+	position: relative;
+
+	&__header {
+		padding-inline: rem(32);
+	}
+
+  &__list {
+    position: relative;
+    height: rem(300);
+    padding-inline: rem(0);
+  }
+
+  &__item {
+    position: absolute;
+    height: var(--physics-item-height);
+    padding-inline: rem(12);
+    border-radius: var(--border-radius);
+    background: var(--color-light);
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    cursor: grab;
+    user-select: none;
+  }
+}

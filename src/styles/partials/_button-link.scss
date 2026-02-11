@@ -1,0 +1,20 @@
+@use "../helpers/" as *;
+
+.button-link {
+  @include square(rem(48));
+  @include flex-center(true);
+
+  background: var(--color-button-link-background);
+  border-radius: var(--border-radius-small);
+  padding: rem(12);
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include hover(false) {
+    scale: 1.15;
+    transform: rotate(3deg);
+  }
+}

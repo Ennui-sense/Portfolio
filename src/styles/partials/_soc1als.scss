@@ -1,0 +1,25 @@
+@use "../helpers/" as *;
+
+.soc1als {
+  display: flex;
+  justify-content: space-between;
+
+  &__card {
+    @include square(rem(94));
+    @include flex-center(true);
+
+    border-radius: var(--border-radius);
+    background: var(--color-card-background);
+    padding: rem(27);
+
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
+
+		@include hover(false) {
+			scale: 1.15;
+			transform: rotate(3deg);
+		}
+  }
+}

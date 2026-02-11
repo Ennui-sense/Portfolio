@@ -1,0 +1,13 @@
+@use "../helpers/" as *;
+
+.image-card {
+  border-radius: var(--border-radius);
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: top;
+  }
+}

@@ -1,0 +1,40 @@
+@use "./helpers/" as *;
+
+@use "base/normalize";
+@use "base/fonts";
+@use "base/variables";
+@use "base/utils";
+@use "base/globals";
+
+
+@use "partials/bg-liquid-glass";
+@use "partials/content";
+@use "partials/header";
+@use "partials/info";
+@use "partials/noise-effect";
+@use "partials/card";
+@use "partials/button-link";
+@use "partials/image-card";
+@use "partials/soc1als";
+@use "partials/footer";
+@use "partials/physics";
+
+// .glass {
+// 	&__wrapper {
+// 		@include square(rem(96));
+
+// 		position: relative;
+// 		overflow: hidden;
+// 		transition: all 0.4s ease;
+// 		background: var(--color-card-background);
+// 		border-radius: var(--border-radius);
+// 	}
+
+// 	&__effect {
+// 		position: absolute;
+// 		inset: 0;
+// 		backdrop-filter: blur(3px);
+// 		filter: url(#glass-distortion);
+// 		overflow: hidden;
+// 	}
+// }

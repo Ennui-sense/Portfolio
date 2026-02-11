@@ -1,0 +1,29 @@
+@use "../helpers/" as *;
+
+.info {
+  // grid-template-columns: 35% 20% 20% 25%;
+  // grid-template-rows: 45% 20% 35%;
+  width: 100%;
+  height: 100%;
+
+  &__content {
+    display: grid;
+    grid-template-columns: rem(420) rem(256) rem(256) rem(310);
+    grid-template-rows: rem(256) rem(94) rem(220);
+    gap: rem(16);
+    grid-template-areas:
+      "block-1 block-2 block-3 block-3"
+      "block-1 block-4 block-4 block-5"
+      "block-1 block-4 block-4 block-6";
+  }
+
+  @for $i from 1 to 6 {
+    &__block {
+      width: 100%;
+
+      &:nth-child(#{$i}) {
+        grid-area: block-#{$i};
+      }
+    }
+  }
+}

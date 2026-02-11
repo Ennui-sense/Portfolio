@@ -1,0 +1,55 @@
+@use "../helpers/" as *;
+
+.card {
+  padding: rem(32);
+  border-radius: var(--border-radius);
+  background: var(--color-card-background);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(16);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(12);
+  }
+
+  &__links {
+    display: flex;
+    column-gap: rem(12);
+  }
+
+  &__image {
+    position: absolute;
+    border-radius: var(--border-radius);
+		left: 50%;
+		transform: translateX(-50%);
+
+    &--gadget {
+      bottom: rem(-90);
+      rotate: 4deg;
+    }
+
+    &--guii-hero {
+      bottom: rem(180);
+      rotate: 2.5deg;
+    }
+
+    &--guii-news {
+      bottom: rem(50);
+			min-width: rem(460);
+      rotate: -4.5deg;
+    }
+  }
+
+  &__text {
+    margin-top: auto;
+  }
+}

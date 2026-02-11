@@ -1,0 +1,26 @@
+@use "./../helpers" as *;
+
+:root {
+	--color-light: #fdfdfd;
+	--color-dark: #000;
+
+	--color-card-background: rgba(176, 176, 176, 0.35);
+	--color-button-link-background: rgba(225, 225, 225, 0.25);
+
+	--font-family-base: "Inter", sans-serif;
+	--font-family-accent: "Caveat", sans-serif;
+
+	--container-width: #{rem(1296)};
+	--container-padding-x: #{rem(25)};
+
+	--button-height-large: #{rem(94)};
+	--button-height: #{rem(48)};
+	--physics-item-height: #{rem(27)};
+
+	--tag-height: #{rem(27)};
+
+	--border-radius: #{rem(20)};
+	--border-radius-small: #{rem(12)};
+
+	--transition-duration: .25s;
+}
