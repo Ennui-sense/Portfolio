@@ -8,7 +8,7 @@ import {
 } from "matter-js";
 
 export function initPhysics() {
-  const container = document.querySelector(".physics__list");
+  const container = document.querySelector(".physics__container");
 
   const items = [...container.querySelectorAll(".physics__item")];
 
@@ -16,7 +16,7 @@ export function initPhysics() {
   const height = container.clientHeight;
 
   const engine = Engine.create();
-  engine.gravity.y = 1;
+  engine.gravity.y = 0.5;
 
   const walls = [
     Bodies.rectangle(width / 2, height + 25, width, 50, { isStatic: true }),

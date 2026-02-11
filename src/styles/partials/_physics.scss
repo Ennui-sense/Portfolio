@@ -12,10 +12,14 @@
 		padding-inline: rem(32);
 	}
 
+	&__container {
+		position: absolute;
+		inset: 0;
+	}
+
   &__list {
     position: relative;
-    height: rem(300);
-    padding-inline: rem(0);
+    height: 100%;
   }
 
   &__item {
