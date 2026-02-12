@@ -7,15 +7,26 @@ import {
   MouseConstraint
 } from "matter-js";
 
+let engine = null;
+let runner = null;
+let bodies = [];
+let container = null;
+
+
+// Инициализируем физику
 export function initPhysics() {
-  const container = document.querySelector(".physics__container");
+	// Случай, когда физика уже была запущена
+  if (engine) return; 
+
+  container = document.querySelector(".physics__container");
 
   const items = [...container.querySelectorAll(".physics__item")];
+  if (!items.length) return;
 
   const width = container.clientWidth;
   const height = container.clientHeight;
 
-  const engine = Engine.create();
+  engine = Engine.create();
   engine.gravity.y = 0.5;
 
   const walls = [
@@ -25,7 +36,7 @@ export function initPhysics() {
     Bodies.rectangle(width + 25, height / 2, 50, height, { isStatic: true })
   ];
 
-  const bodies = items.map((el) => {
+  bodies = items.map((el) => {
     const rect = el.getBoundingClientRect();
 
     const body = Bodies.rectangle(
@@ -41,6 +52,7 @@ export function initPhysics() {
     );
 
     body.el = el;
+    el.style.position = "absolute";
     return body;
   });
 
@@ -57,22 +69,42 @@ export function initPhysics() {
 
   Composite.add(engine.world, mouseConstraint);
 
-  const runner = Runner.create();
+  runner = Runner.create();
   Runner.run(runner, engine);
 
-  function render() {
-    bodies.forEach((body) => {
-      const { x, y } = body.position;
+  requestAnimationFrame(update);
+}
 
-      body.el.style.transform = `
-        translate(${x - body.el.offsetWidth / 2}px,
-                  ${y - body.el.offsetHeight / 2}px)
-        rotate(${body.angle}rad)
-      `;
-    });
+function update() {
+  if (!engine) return;
 
-    requestAnimationFrame(render);
-  }
+  bodies.forEach((body) => {
+    const { x, y } = body.position;
 
-  render();
+    body.el.style.transform = `
+      translate(${x - body.el.offsetWidth / 2}px,
+                ${y - body.el.offsetHeight / 2}px)
+      rotate(${body.angle}rad)
+    `;
+  });
+
+  requestAnimationFrame(update);
+}
+
+
+// Останавливаем физику
+export function stopPhysics() {
+  if (!engine) return;
+
+  Runner.stop(runner);
+  Composite.clear(engine.world, false);
+
+  bodies.forEach((body) => {
+    body.el.style.transform = "";
+    body.el.style.position = "";
+  });
+
+  engine = null;
+  runner = null;
+  bodies = [];
 }

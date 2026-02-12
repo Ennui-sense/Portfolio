@@ -4,6 +4,16 @@
   display: flex;
   justify-content: space-between;
 
+  @include desktop {
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: rem(8);
+  }
+
+  @include mobile {
+    flex-wrap: nowrap;
+  }
+
   &__card {
     @include square(rem(94));
     @include flex-center(true);
@@ -17,9 +27,35 @@
       height: 100%;
     }
 
-		@include hover(false) {
-			scale: 1.15;
-			transform: rotate(3deg);
-		}
+    @include mobile {
+      width: 100%;
+      height: auto;
+    }
+
+    @include hover(false) {
+      scale: 1.15;
+      transform: rotate(3deg);
+
+      @include desktop {
+        scale: 1.05;
+        transform: rotate(3deg);
+      }
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+
+    @include desktop {
+      &:nth-child(3) {
+        flex-grow: 1;
+      }
+    }
+
+    @include mobile {
+      &:nth-child(3) {
+        flex-grow: 0;
+      }
+    }
   }
 }

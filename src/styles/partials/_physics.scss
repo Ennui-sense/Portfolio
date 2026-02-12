@@ -8,24 +8,45 @@
   flex-direction: column;
 	position: relative;
 
+	@include desktop {
+		 padding: rem(24);
+	}
+
 	&__header {
 		padding-inline: rem(32);
+
+		@include desktop {
+			padding: 0
+		}
 	}
 
 	&__container {
 		position: absolute;
 		inset: 0;
+
+		@include desktop {
+			position: static;
+			margin-top: auto;
+		}
 	}
 
   &__list {
     position: relative;
     height: 100%;
+
+		@include desktop {
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem(8)
+		}
   }
 
   &__item {
     position: absolute;
     height: var(--physics-item-height);
     padding-inline: rem(12);
+		display: flex;
+		align-items: center;
     border-radius: var(--border-radius);
     background: var(--color-light);
     color: var(--color-dark);
@@ -35,5 +56,9 @@
     letter-spacing: -0.03em;
     cursor: grab;
     user-select: none;
+
+		@include desktop {
+			position: static;
+		}
   }
 }

@@ -9,6 +9,10 @@
   flex-direction: column;
   overflow: hidden;
 
+  @include desktop {
+    padding: rem(24);
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -29,23 +33,39 @@
   &__image {
     position: absolute;
     border-radius: var(--border-radius);
-		left: 50%;
-		transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 
     &--gadget {
       bottom: rem(-90);
       rotate: 4deg;
+
+      @include mobile-s {
+        width: 90%;
+      }
     }
 
     &--guii-hero {
       bottom: rem(180);
       rotate: 2.5deg;
+
+      @include desktop {
+        bottom: rem(-40);
+      }
+
+      @include mobile-s {
+        width: 90%;
+      }
     }
 
     &--guii-news {
       bottom: rem(50);
-			min-width: rem(460);
+      min-width: rem(460);
       rotate: -4.5deg;
+
+      @include desktop {
+        display: none;
+      }
     }
   }
 
