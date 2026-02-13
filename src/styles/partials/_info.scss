@@ -28,7 +28,7 @@
 
     @include mobile {
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr rem(280) rem(110) rem(190) rem(330) rem(330);
+      grid-template-rows: 1fr rem(280) rem(110) rem(220) rem(330) rem(330);
       grid-template-areas:
         "block-2"
         "block-3"
